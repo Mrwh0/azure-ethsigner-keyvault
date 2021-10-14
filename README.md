@@ -1,3 +1,9 @@
+# what is this?
+
+1. [active_directory.tf](active_directory.tf) Azure Active Directory application, service principal and service principal password 
+2. [key_vault.tf](key_vault.tf) Azure Key Vault and HSM "SECP256K1"
+3. [ethsigner.tf](ethsignet.tf) eth-signer container 
+
 # runtest
 
 ```bash
