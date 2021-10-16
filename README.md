@@ -27,7 +27,7 @@ sudo apt-get update
 sudo apt-get install azure-cli
 ```
 
-# deploy
+# login azure with cli & deploy
 
 ```
 az login
@@ -38,10 +38,38 @@ terraform plan -out plan.txt
 terraform apply plan.txt
 ```
 
-# error 
+# issue 1
+
+**1. Log in with azure cli**
 
 ```
-~/terraform terraform apply plan.txt 
+~$ az login 
+
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXXXXX to authenticate.
+loged in with the 'Default Directory':
+[
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "6a3ee749-b708-41fa-8aba-46beca6fa849",
+    "id": "92e23afd-9779-4ffb-b329-8e19d4077013",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "my.Gallery-Blockchain",
+    "state": "Enabled",
+    "tenantId": "6a3ee749-b708-41fa-8aba-46beca6fa849",
+    "user": {
+      "name": "bettXXXX@gmail.com",
+      "type": "user"
+    }
+  }
+]
+
+```
+
+**2. deploy the terraform script**
+```
+$~/terraform terraform apply plan.txt 
+
 azuread_application.this: Creating...
 azurerm_resource_group.this: Creating...
 azurerm_resource_group.this: Creation complete after 1s [id=/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/rg-ethsigner-eastus]
@@ -58,3 +86,6 @@ azurerm_resource_group.this: Creation complete after 1s [id=/subscriptions/xxxxx
 │ complete the operation."},"requestId":"4f2e5be1-1be6-4793-bd4a-61823c98a62f"}}]
 ╵
 ```
+**Solution**
+fix permissions on user bettXXXXX@gmail.com to perform [this task](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
+
