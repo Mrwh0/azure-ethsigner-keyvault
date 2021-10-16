@@ -86,6 +86,8 @@ azurerm_resource_group.this: Creation complete after 1s [id=/subscriptions/xxxxx
 │ complete the operation."},"requestId":"4f2e5be1-1be6-4793-bd4a-61823c98a62f"}}]
 ╵
 ```
-**Solution**
+**Solution 1**
 fix permissions on user bettXXXXX@gmail.com to perform [this task](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
 
+**Solution 2**
+[create a service principal](https://www.ibm.com/docs/en/netezza?topic=SSTNZ3/com.ibm.ips.doc/postgresql/admin/create_service_principal_azure.html)
