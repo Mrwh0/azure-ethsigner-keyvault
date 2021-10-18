@@ -27,13 +27,11 @@ sudo apt-get update
 sudo apt-get install azure-cli
 az --version 
 # note azure-cli must be 2.29.0, the 2.28.0 had an ugly coinater lib bug 
-
 ```
 
 # login azure with cli & deploy
 
-```
-
+```bash
 # log with specific tenant
 az login -t 6a3ee749-b708-41fa-8aba-46beca6fa849
 cd terraform
@@ -47,14 +45,13 @@ terraform apply plan.txt
 # debug
 
 ## Chek the eth-signer container info
-```
+```bash
 cointigo@nixbox2:~/nft$ az container list
-
 ```
 
 ## Check eth-siger conatiner logs
 
-```
+```bash
 cointigo@nixbox2:~/nft$ az container logs --name aci-ethsigner --resource-group rg-ethsigner-eastus
 
 Setting logging level to INFO
@@ -70,7 +67,7 @@ Setting logging level to INFO
 
 ## Test eth-signer container working properly against the downstream (the RPC)
 
-```
+```bash
 cointigo@nixbox2:~/nft$ az container exec --name aci-ethsigner --resource-group rg-ethsigner-eastus --exec-command "/bin/bash"
 
 root@SandboxHost-637700298678944975:/opt/ethsigner# apt-get update
@@ -88,4 +85,6 @@ root@SandboxHost-637700298678944975:/opt/ethsigner# curl --location --request PO
 root@SandboxHost-637700298678944975:/opt/ethsigner# curl --location --request POST 'http://127.0.0.1:8545' --header 'Content-Type: application/json' --data-raw '{  "jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":1 }'
 {"jsonrpc":"2.0","result":"0xd9345","id":1}
 
+# check ethereum accounts on eth-signer
+root@SandboxHost-637700298678944975:/opt/ethsigner# curl --location --request POST 'http://127.0.0.1:8545' --header 'Content-Type: application/json' --data-raw '{  "jsonrpc":"2.0", "method":"eth_accounts", "params":[], "id":1 }'
 ```

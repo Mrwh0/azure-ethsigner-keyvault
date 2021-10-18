@@ -1,7 +1,10 @@
 terraform {
   required_providers {
     azurerm = {}
-    azuread = {}
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "~> 1.4.0"
+    }
     random  = {}
   }
 }
@@ -43,9 +46,9 @@ resource "random_string" "this" {
 }
 
 resource "azuread_service_principal_password" "this" {
-  service_principal_id = azuread_service_principal.this.id
+  service_principal_id = "${azuread_service_principal.this.id}"
   value                = random_string.this.result
-  end_date             = "2022-01-01T00:00:00Z"
+  end_date             = "2023-01-01T00:00:00Z"
 }
 
 resource "azurerm_key_vault" "this" {
@@ -111,6 +114,7 @@ resource "azurerm_container_group" "this" {
     environment_variables = {
       "ETHSIGNER_CHAIN_ID"                        = "172"
       "ETHSIGNER_HTTP_CORS_ORIGINS"               = "*"
+      "ETHSIGNER_HTTP_LISTEN_HOST"                = "0.0.0.0"
       "ETHSIGNER_DOWNSTREAM_HTTP_HOST"            = "rpc.latam-blockchain.com"
       "ETHSIGNER_DOWNSTREAM_HTTP_PORT"            = "443"
       "ETHSIGNER_DOWNSTREAM_HTTP_TLS_ENABLED"     = "true"
