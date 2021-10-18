@@ -95,7 +95,7 @@ def test_erc_transfer(user_id):
       'from': address,
       'gas': 70000,
       'gasPrice': gasPrice,
-      'nonce': nonce,
+      'nonce': nonce + 1,
       'chainId': 172
     }
 
