@@ -32,6 +32,8 @@ create new wallet task:
 - create .toml file on eth-signer shared storage
 - on WIP update/reload/restart eth-signer account to be used as signer account
 - return eth address(account) 
+
+the base app should be able to use the eth-signer endpoint as web3 signer provider & broadcast only, for all other web3 methods needed such as events listen, gas information, balances etc ...  use another rpc endpoint.  
 ```
 
 
