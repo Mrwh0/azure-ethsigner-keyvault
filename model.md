@@ -1,9 +1,9 @@
 ```bash
 # base contracts ownership
 
-remplace the Hardware Wallet ownership to 3 of 5 multi sig using https://gnosis-safe.io/app/#/welcome
+remplace the Hardware Wallet ownership to 3 of 5 multisig using app.gnosis-safe.io
 
-sign contract creation or tranfer ownership to a mulsig wallet.
+sign contract creation or tranfer ownership to a multisig wallet.
 ```
 
 
