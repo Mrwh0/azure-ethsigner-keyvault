@@ -33,7 +33,12 @@ create new wallet task:
 - on WIP update/reload/restart eth-signer account to be used as signer account
 - return eth address(account) 
 
-the base app should be able to use the eth-signer endpoint as web3 signer provider & broadcast only, for all other web3 methods needed such as events listen, gas information, balances etc ...  use another rpc endpoint.  
+
+notes:
+- the base app should be able to use the eth-signer endpoint as web3 signer provider & broadcast only, for all other web3 methods needed such as events listen, gas information, balances etc ...  use another rpc endpoint.  
+- a gas price oracle must be implemented or find a 3rd party service
+- a tx fees protocol on the base app side (each user wallet will hold balance to pay for tx fees?)
+- find a 3rd party service for the RPC endpoint for web3 (non signature & broadcast related) methods
 ```
 
 
