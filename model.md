@@ -1,4 +1,15 @@
 ```bash
+# base contracts ownership
+
+remplace the Hardware Wallet ownership to 3 of 5 multi sig using https://gnosis-safe.io/app/#/welcome
+
+sign contract creation or tranfer ownership to a mulsig wallet.
+```
+
+
+
+```bash
+# Key Management
 
 new user 
    |
@@ -21,7 +32,6 @@ create new wallet task:
 - create .toml file on eth-signer shared storage
 - on WIP update/reload/restart eth-signer account to be used as signer account
 - return eth address(account) 
-
 ```
 
 
